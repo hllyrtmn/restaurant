@@ -1,0 +1,38 @@
+<div class="container">
+  <h3>Günün Restoranı  </h3><h2>{{restaurant.name}}</h2>
+  <div class="card mb-3">
+    <img class="card-img-top" src="../../../../assets/restaurant2.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Bu güzel günün özel restoranı, {{restaurant.name}} seçilmiştir.</p>
+      <p class="card-text"><small class="text-muted">{{dateTime | date: 'dd/MM/yyyy'}}</small></p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container">
+
+    <input class="form-control" [(ngModel)]="filterText" id="filterText"  type="text" placeholder="Yemek türünüze göre filtreleme yapabilirsiniz.">
+
+  <div class="row ">
+  <div class="card m-2" style="width: 314px" *ngFor="let item of restaurants | filterType: filterText">
+    <img class="card-img-top" src="../../../../assets/restaurant.png" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}} </h5>
+      <h6><small>{{item.type}}</small></h6>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content. asd
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{item.town}},{{item.city}}<small>/{{item.establishment}}</small> </li>
+      <li class="list-group-item">Yorum () Puan ()</li>
+      <li class="list-group-item"><button routerLink="/restaurant-detail/{{item.id}}" class="btn btn-primary">Detay</button></li>
+    </ul>
+
+  </div>
+</div>
+</div>

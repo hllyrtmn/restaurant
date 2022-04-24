@@ -1,0 +1,112 @@
+<p>{{restaurant.name}}</p>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5"><img src="../../../assets/restaurant3.jpg" class="img-fluid rounded" alt="Responsive image"></div>
+    <div class="col-md-7">
+      <div class="border border-info">
+        <div class="row">
+          <div class="col-md-6"><h3>Restoran İsmi</h3></div>
+          <div class="col-md-6 float-left"><h4>{{restaurant.name}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><h3>Restoran Türü</h3></div>
+          <div class="col-md-6 float-left"><h4>{{restaurant.type}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><h3>Restoran İli</h3></div>
+          <div class="col-md-6 float-left"><h4>{{restaurant.city}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><h3>Restoran İlçesi</h3></div>
+          <div class="col-md-6 float-left"><h4>{{restaurant.town}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6"><h3>Restoran Kuruluşu</h3></div>
+          <div class="col-md-6 float-left"><h4>{{restaurant.establishment}}</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2>Yorumlar</h2>
+  <section style="background-color: white;" *ngFor="let item of restaurantOpinions">
+    <div class="container text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-11 col-lg-9 col-xl-7">
+          <div class="d-flex flex-start mb-4">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <div class="">
+                  <h5>Johny Cash</h5>
+                  <p class="small">3 hours ago</p>
+                  <p>
+                    {{item.comment}}
+                  </p>
+
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                      <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
+                      <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                    </div>
+                    <a href="#!" class="link-muted"><i class="fas fa-reply me-1"></i> Reply</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background-color: white;">
+    <div class="container my-5 py-5 text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-6">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="d-flex flex-start w-100">
+                <img class="rounded-circle shadow-1-strong me-3"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="65"
+                  height="65" />
+                <div class="w-100">
+                  <h5>Add a comment</h5>
+                  <ul class="rating mb-3" data-mdb-toggle="rating">
+                    <li>
+                      <i class="far fa-star fa-sm text-danger" title="Bad"></i>
+                    </li>
+                    <li>
+                      <i class="far fa-star fa-sm text-danger" title="Poor"></i>
+                    </li>
+                    <li>
+                      <i class="far fa-star fa-sm text-danger" title="OK"></i>
+                    </li>
+                    <li>
+                      <i class="far fa-star fa-sm text-danger" title="Good"></i>
+                    </li>
+                    <li>
+                      <i class="far fa-star fa-sm text-danger" title="Excellent"></i>
+                    </li>
+                  </ul>
+                  <div class="form-outline">
+                    <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                    <label class="form-label" for="textAreaExample">What is your view?</label>
+                  </div>
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-success">Danger</button>
+                    <button type="button" class="btn btn-danger">
+                      Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3"><button type="button" class="btn btn-success" (click)="openVerticallyCentered(content)">Restoran Ekle</button></div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Restoran Adı</th>
+        <th scope="col">Restoran Türü</th>
+        <th scope="col">İl</th>
+        <th scope="col">İlçe</th>
+        <th scope="col">Kuruluş Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of restaurants">
+        <th >{{item.name}}</th>
+        <td>{{item.type}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.town}}</td>
+        <td>{{item.establishment}}</td>
+        <td><button (click)="updateModalForm(item.id,contentupdate)" type="button" class="btn btn-secondary btn-sm m-2">Güncelle</button><button (click)="delete(item.id)" type="button" class="btn btn-danger btn-sm">Sil</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Restoran Ekle</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="restaurantAddForm">
+      <div class="form-group">
+        <input type="text" id="name" formControlName="name" class="form-control m-1" placeholder="Restoran Adı">
+        <input type="text" id="type" formControlName="type" class="form-control m-1" placeholder="Restoran Türü">
+        <input type="text" id="city" formControlName="city" class="form-control m-1" placeholder="İl">
+        <input type="text" id="town" formControlName="town" class="form-control m-1" placeholder="İlçe">
+        <input type="text" id="establishment" formControlName="establishment" class="form-control m-1" placeholder="Kuruluş Tarihi">
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="add()">Restoran Ekle</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Vazgeç</button>
+
+  </div>
+</ng-template>
+<ng-template #contentupdate let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Restoran Güncelle</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="restaurantAddForm">
+      <div class="form-group">
+        <input [(ngModel)]="restaurant.name"type="text" id="name" formControlName="name" class="form-control m-1" placeholder="Restoran Adı">
+        <input [(ngModel)]="restaurant.type"  type="text" id="type" formControlName="type" class="form-control m-1" placeholder="Restoran Türü">
+        <input [(ngModel)]="restaurant.city" type="text" id="city" formControlName="city" class="form-control m-1" placeholder="İl">
+        <input [(ngModel)]="restaurant.town" type="text" id="town" formControlName="town" class="form-control m-1" placeholder="İlçe">
+        <input [(ngModel)]="restaurant.establishment" type="text" id="establishment" formControlName="establishment" class="form-control m-1" placeholder="Kuruluş Tarihi">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="update()">Restoran Güncelle</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Vazgeç</button>
+
+  </div>
+</ng-template>
+
